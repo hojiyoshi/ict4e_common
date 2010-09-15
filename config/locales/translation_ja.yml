@@ -1,0 +1,33 @@
+ja: 
+  activerecord: 
+    models: 
+      user: "user"  #g
+      user_common: "user_common"  #g
+
+    attributes: 
+      user: 
+        email: "メールアドレス"  #g
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+
+      user_common: 
+        lastname_kanji: "lastname_kanji"  #g
+        lastname_kana: "lastname_kana"  #g
+        firstname_kanji: "firstname_kanji"  #g
+        firstname_kana: "firstname_kana"  #g
+        phone_number1: "phone_number1"  #g
+        phone_number2: "電話number2"  #g
+        phone_number3: "phone_number3"  #g
+        fax_number1: "fax_number1"  #g
+        fax_number2: "fax_number2"  #g
+        fax_number3: "fax_number3"  #g
+        cellphone_number1: "携帯電話番号1"  #g
+        cellphone_number2: "携帯電話number2"  #g
+        cellphone_number3: "携帯電話number3"  #g
+        cellphone_email: "携帯メール"  #g
+        user_address1: "ユーザーアドレス1"  #g
+        user_address2: "ユーザーaddress2は"  #g
+        user_address3: "user_address3"  #g
+        user_address4: "user_address4"  #g
+        user_address5: "user_address5"  #g
+

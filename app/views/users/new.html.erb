@@ -1,0 +1,51 @@
+<% @user.password = @user.password_confirmation = nil %>
+
+<div>みんなのICTのユーザアカウントを作成すると各種サービスを利用することができます。</div>
+<div>利用許諾の確認とユーザ情報の入力を行い、画面下のボタンをクリックしてください。</div>
+
+<div CLASS="spacer"></div>
+<%= render :partial => 'common_license' %>
+<div CLASS="spacer"></div>
+
+<% form_for :user, :url => users_path do |f| -%>
+
+<div><%= image_tag 'regist_guide.gif', :alt =>'みんなのICTのアカウント情報の入力'%></div>
+<div>みんなのICTにログインするために必要な情報です。</div>
+<div class="spacer"></div>
+<%= error_messages_for 'user' %>
+
+<% fields_for :user do |f| %>
+<div>
+  <div class="formCaption">メールアドレス：</div>
+  <div><%= f.text_field :email, :size=>48, :maxlength=>100 %></div>
+</div>
+<div>
+  <div class="formCaption">&nbsp;</div>
+  <div class="marginArea">例）regist@ict4everyone.jp</div>
+</div>
+<div class="spacer"></div>
+<div>
+  <div class="formCaption">パスワード：</div>
+  <div><%= f.password_field :password, :size=>48, :maxlength=>100 %></div>
+</div>
+<div>
+  <div class="formCaption">パスワード（確認）：</div>
+  <div><%= f.password_field :password_confirmation, :size=>48, :maxlength=>100 %></div>
+</div>
+<div>
+  <div class="formCaption">&nbsp;</div>
+  <div class="marginArea">パスワードは<strong>半角英数字（6文字以上）</strong>で入力して下さい。</div>
+</div>
+<% end -%>
+<div CLASS="spacer"></div>
+<div>
+  <div CLASS="divLeft">
+    <%= submit_tag '上記の内容で登録する',:id => 'script_btn', :name => 'next_page' %>
+  <% end -%>
+  <% form_tag login_path do -%>
+  </div>
+  <div>
+    <%= submit_tag '前画面へ戻る', :name => 'back_page' %>
+    <% end -%>
+  </div>
+</div>

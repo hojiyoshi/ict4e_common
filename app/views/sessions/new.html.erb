@@ -1,0 +1,54 @@
+<div class="spacer"></div>
+<div id="introPage" class="tableArea">
+  <div class="captionArea">
+    <b>ログインするとみんなのICTの各種サービスを利用することができます。</b>
+  </div>
+  <div class="marginArea">
+    右側のフォームからログインして下さい。<br/>
+    アカウントをお持ちでない方は、 <%= link_to('ユーザ登録',signup_path) %>（無料）を行うとすぐに利用できます。
+  </div>
+  <div class="spacer"></div>
+  <div class="marginArea">
+    <%= render :partial => 'layouts/top_explain' %>
+  </div>
+<div class="spacer"></div>
+ </div>
+<div id="loginPage">
+  <div class="tableArea">    
+    <div class="captionArea">
+      <b>ログインはこちら</b>
+    </div>
+    <% form_tag session_path do -%>
+    
+    <div class="marginArea">
+      会員の方は、メールアドレスとパスワードを入力し、「ログイン」ボタンをクリックしてください。
+    </div>
+    <div class="spacer_mini"></div>
+    <div><%=flash[:notices]%></div>
+    <div class="spacer_mini"></div>
+    <div>
+      <div class="formCaption"><%= label 'users','email', 'メールアドレス：'%></div>
+      <div><%= text_field 'users','email', :size=> 25, :maxlength=>100, :value=>@user_email, :class=>'login_form' %></div>
+    </div>
+    <div class="spacer_mini"></div>
+    <div>
+      <div class="formCaption"><%= label 'users','password', 'パスワード：'%></div>
+      <div><%= password_field 'users','password', :size=> 25, :maxlength=>100, :class=>'login_form' %></div>
+    </div>
+    <div class="spacer_mini"></div>
+    <div class="marginArea"><%= check_box 'users','remember_me' %><%= label 'users','remember_me', '自動ログインを行う。'%></div>
+    <div class="spacer_mini"></div>
+    <div class="marginArea"><%= submit_tag 'ログイン' %></div>
+    <div class="spacer_mini"></div>
+    <% end -%>
+    <div class="marginArea">
+      新しく登録を行いたい方は、「ユーザ登録」をクリックしてください。
+    </div>
+    <div class="marginArea">
+      <%= link_to(image_tag('user_regist.gif', :alt =>'ユーザ登録はこちら',:border=>0),signup_path) %>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+<div class="spacer"></div>
+
