@@ -1,0 +1,305 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+ict4e_url:
+  id: 1
+  application_name: ict4e_url
+  item_data: http://www.ict4everyone.jp/
+  sort_order: 0
+
+ict4e_regist_url:
+  id: 3
+  application_name: ict4e_regist_url
+  item_data: http://localhost:3001/
+  sort_order: 0
+
+ict4e_office_mail:
+  id: 5
+  application_name: ict4e_office_mail
+  item_data: info@ict4everyone.jp
+  sort_order: 0
+
+pref_name_1:
+  id: 12010
+  application_name: pref_name
+  item_data: 北海道
+  sort_order: 0
+
+pref_name_2:
+  id: 12020
+  application_name: pref_name
+  item_data: 青森県
+  sort_order: 20
+
+pref_name_3:
+  id: 12030
+  application_name: pref_name
+  item_data: 岩手県
+  sort_order: 30
+
+pref_name_4:
+  id: 12040
+  application_name: pref_name
+  item_data: 宮城県
+  sort_order: 40
+
+pref_name_5:
+  id: 12050
+  application_name: pref_name
+  item_data: 秋田県
+  sort_order: 50
+
+pref_name_6:
+  id: 12060
+  application_name: pref_name
+  item_data: 山形県
+  sort_order: 60
+
+pref_name_7:
+  id: 12070
+  application_name: pref_name
+  item_data: 福島県
+  sort_order: 70
+
+pref_name_8:
+  id: 12080
+  application_name: pref_name
+  item_data: 茨城県
+  sort_order: 80
+
+pref_name_9:
+  id: 12090
+  application_name: pref_name
+  item_data: 栃木県
+  sort_order: 90
+
+pref_name_10:
+  id: 12100
+  application_name: pref_name
+  item_data: 群馬県
+  sort_order: 100
+
+pref_name_11:
+  id: 12110
+  application_name: pref_name
+  item_data: 埼玉県
+  sort_order: 110
+
+pref_name_12:
+  id: 12120
+  application_name: pref_name
+  item_data: 千葉県
+  sort_order: 120
+
+pref_name_13:
+  id: 12130
+  application_name: pref_name
+  item_data: 東京都
+  sort_order: 130
+
+pref_name_14:
+  id: 12140
+  application_name: pref_name
+  item_data: 神奈川県
+  sort_order: 140
+
+pref_name_15:
+  id: 12150
+  application_name: pref_name
+  item_data: 新潟県
+  sort_order: 150
+
+pref_name_16:
+  id: 12160
+  application_name: pref_name
+  item_data: 富山県
+  sort_order: 160
+
+pref_name_17:
+  id: 12170
+  application_name: pref_name
+  item_data: 石川県
+  sort_order: 170
+
+pref_name_18:
+  id: 12180
+  application_name: pref_name
+  item_data: 福井県
+  sort_order: 180
+
+pref_name_19:
+  id: 12190
+  application_name: pref_name
+  item_data: 山梨県
+  sort_order: 190
+
+pref_name_20:
+  id: 12200
+  application_name: pref_name
+  item_data: 長野県
+  sort_order: 200
+
+pref_name_21:
+  id: 12210
+  application_name: pref_name
+  item_data: 岐阜県
+  sort_order: 210
+
+pref_name_22:
+  id: 12220
+  application_name: pref_name
+  item_data: 静岡県
+  sort_order: 220
+
+pref_name_23:
+  id: 12230
+  application_name: pref_name
+  item_data: 愛知県
+  sort_order: 230
+
+pref_name_24:
+  id: 12240
+  application_name: pref_name
+  item_data: 三重県
+  sort_order: 240
+
+pref_name_25:
+  id: 12250
+  application_name: pref_name
+  item_data: 滋賀県
+  sort_order: 250
+
+pref_name_26:
+  id: 12260
+  application_name: pref_name
+  item_data: 京都府
+  sort_order: 260
+
+pref_name_27:
+  id: 12270
+  application_name: pref_name
+  item_data: 大阪府
+  sort_order: 270
+
+pref_name_28:
+  id: 12280
+  application_name: pref_name
+  item_data: 兵庫県
+  sort_order: 280
+
+pref_name_29:
+  id: 12290
+  application_name: pref_name
+  item_data: 奈良県
+  sort_order: 290
+
+pref_name_30:
+  id: 12300
+  application_name: pref_name
+  item_data: 和歌山県
+  sort_order: 300
+
+pref_name_31:
+  id: 12310
+  application_name: pref_name
+  item_data: 鳥取県
+  sort_order: 310
+
+pref_name_32:
+  id: 12320
+  application_name: pref_name
+  item_data: 島根県
+  sort_order: 32
+
+pref_name_33:
+  id: 12330
+  application_name: pref_name
+  item_data: 岡山県
+  sort_order: 33
+
+pref_name_34:
+  id: 12340
+  application_name: pref_name
+  item_data: 山口県
+  sort_order: 34
+
+pref_name_35:
+  id: 12350
+  application_name: pref_name
+  item_data: 徳島県
+  sort_order: 35
+
+pref_name_36:
+  id: 12360
+  application_name: pref_name
+  item_data: 香川県
+  sort_order: 36
+
+pref_name_37:
+  id: 12370
+  application_name: pref_name
+  item_data: 愛媛県
+  sort_order: 37
+
+pref_name_38:
+  id: 12380
+  application_name: pref_name
+  item_data: 高知県
+  sort_order: 38
+
+pref_name_39:
+  id: 12390
+  application_name: pref_name
+  item_data: 福岡県
+  sort_order: 39
+
+pref_name_40:
+  id: 12400
+  application_name: pref_name
+  item_data: 佐賀県
+  sort_order: 400
+
+pref_name_41:
+  id: 12410
+  application_name: pref_name
+  item_data: 長崎県
+  sort_order: 410
+
+pref_name_42:
+  id: 12420
+  application_name: pref_name
+  item_data: 熊本県
+  sort_order: 420
+
+pref_name_43:
+  id: 12430
+  application_name: pref_name
+  item_data: 大分県
+  sort_order: 430
+
+pref_name_44:
+  id: 12440
+  application_name: pref_name
+  item_data: 宮崎県
+  sort_order: 440
+
+pref_name_45:
+  id: 12450
+  application_name: pref_name
+  item_data: 鹿児島
+  sort_order: 450
+
+pref_name_46:
+  id: 12460
+  application_name: pref_name
+  item_data: 沖縄県
+  sort_order: 460
+
+braille_user_type_1:
+  id: 20000
+  application_name: braille_user_type
+  item_data: 沖縄県
+  sort_order: 460
