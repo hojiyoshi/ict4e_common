@@ -25,8 +25,9 @@ module Authentication
       end
 
       # These create and unset the fields required for remembering users between browser closes
-      def remember_me
-        remember_me_for 2.weeks
+      # 引数により、cookieの有効期限を設定できるように変更
+      def remember_me(time = 2.weeks)
+        remember_me_for time
       end
 
       def remember_me_for(time)

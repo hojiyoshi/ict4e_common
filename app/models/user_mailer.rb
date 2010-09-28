@@ -16,6 +16,12 @@ class UserMailer < ActionMailer::Base
     @body[:url]  = @body[:server_name]
   end
 
+  def contactus(user)
+    setup_email
+    @subject    += NKF.nkf('-j --cp932 -m0',"お問い合わせがありました")
+    @body[:contactus] = user
+  end
+
   ### メール本文の文字コードを変換するメソッド
   def create! (*)
     super
@@ -24,11 +30,10 @@ class UserMailer < ActionMailer::Base
   end
   
   protected
-    def setup_email(user)
+    def setup_email(user = nil)
       @body[:office] = OFFICE_EMAIL             # 問い合わせ先のメールアドレス（環境に合わせる）
       @body[:server_name] = ICT4E_ACCOUNTS_URL                  # config/environment.rb参照
       @body[:ict4everyone_name] = ICT4E_URL                     # みんなのICTのURL
-      @recipients   = "#{user.email}"                           # 宛先
       @mime_version = '1.0'                                     # mime version
       @charset      = 'iso-2022-jp'                             # 文字コード
       @content_type = 'text/plain'                              # content_type
@@ -37,6 +42,11 @@ class UserMailer < ActionMailer::Base
       @bcc          = 'hojiyoshi@gmail.com'                     # 事務局アドレス（あとで変える）
       @sent_on      = Time.now                                  # 送信時刻
       @headers      = {'Content-Transfer-Encoding' => '7bit'}   # 送信ヘッダ
-      @body[:user]  = user                                      # 本文
+      unless user == nil
+        @recipients   = "#{user.email}"                           # 宛先
+        @body[:user]  = user                                      # 本文
+      else
+        @recipients   = 'hojiyoshi@gmail.com'  
+      end
     end
 end

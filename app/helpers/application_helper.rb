@@ -1,9 +1,18 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def ja_error_messages_for(object_name)
-    object = instance_variable_get("@#{object_name}")
-    unless object.errors.empty?
-      render :partial=>"layouts/error_messages_for.html",:locals=>{:messages=>object.errors.full_messages}
+  # 指定したapplication_nameにマッチするIct4eMasterDatumオブジェクトを取得するメソッド
+  def select_master_data(target,type=:all)
+    master_data = Ict4eMasterDatum.find(type,:conditions => ['application_name = ?',target],:order => 'sort_order ASC')
+    if type == :all
+      return master_data
+    else
+      return master_data.item_data
     end
+  end
+
+  # 改行コードを含む文字列を出力するための変換メソッド
+  def hbr(target)
+    target = html_escape(target)
+    target.gsub(/\r\n|\r|\n/, "<br />")
   end
 end

@@ -19,12 +19,13 @@
       <b>ログインはこちら</b>
     </div>
     <% form_tag session_path do -%>
-    
     <div class="marginArea">
       会員の方は、メールアドレスとパスワードを入力し、「ログイン」ボタンをクリックしてください。
     </div>
     <div class="spacer_mini"></div>
-    <div><%=flash[:notices]%></div>
+
+    <div class="marginLeftArea"><strong><%=flash[:notice]%></strong></div>
+    <div class="marginLeftArea"><strong><%=flash[:error]%></strong></div>
     <div class="spacer_mini"></div>
     <div>
       <div class="formCaption"><%= label 'users','email', 'メールアドレス：'%></div>

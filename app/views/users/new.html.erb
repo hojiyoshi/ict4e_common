@@ -38,14 +38,13 @@
 </div>
 <% end -%>
 <div CLASS="spacer"></div>
+
+<div CLASS="divLeft">
+  <%= submit_tag '上記の内容で登録する',:id => 'script_btn', :name => 'next_page' %>
+<% end -%>
+<% form_tag login_path do -%>
+</div>
 <div>
-  <div CLASS="divLeft">
-    <%= submit_tag '上記の内容で登録する',:id => 'script_btn', :name => 'next_page' %>
+  <%= submit_tag '前画面へ戻る', :name => 'back_page' %>
   <% end -%>
-  <% form_tag login_path do -%>
-  </div>
-  <div>
-    <%= submit_tag '前画面へ戻る', :name => 'back_page' %>
-    <% end -%>
-  </div>
 </div>

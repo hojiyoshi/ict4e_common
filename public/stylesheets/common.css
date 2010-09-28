@@ -1,5 +1,5 @@
 body{
-    font-size: 12px;
+    /*font-size: 12px;*/
     text-align: center;
     letter-spacing: 0.05em;
 }
@@ -24,32 +24,62 @@ strong{
 #footerArea{
     width : 945px;
 }
-/* DIVの左回り込み設定 */
-.divLeft{
-    float:left;
-}
-/* 回り込み解除スタイル設定 */
-.clearDiv{
-    clear:both;
-}
-/* スペース行（小）のスタイル設定 */
-.spacer_mini{
-    padding-top:5px;
-}
-/* スペース行（大）のスタイル設定 */
-.spacer{
-    height:15px;
-}
 .captionArea{
     padding: 5px 5px;
     background-image: url(../../images/caption_back.gif);
     border-bottom: 2px solid #999;
 }
+.captiontableArea{
+    width:250px;
+    background-color:#CCCCCC;
+    border: 2px solid #999;
+    vertical-align:middle;
+    padding:5px;
+}
+/* 回り込み解除スタイル設定 */
+.clearDiv{
+    clear:both;
+}
+
+/* DIVの左回り込み設定 */
+.divLeft{
+    float:left;
+}
+.formCaption{
+    float:left;
+    width:140px;
+    margin-top: 5px;
+    text-align:right;
+}
+.formtableArea{
+    padding:5px;
+    border: 2px solid #999;
+}
+.formtableWidth{
+    width:900px;
+}
+/* スペース行（大）のスタイル設定 */
+.spacer{
+    height:15px;
+}
+/* スペース行（小）のスタイル設定 */
+.spacer_mini{
+    padding-top:5px;
+}
+
+
 .marginArea{
     padding:5px;
 }
+.marginLeftArea{
+    padding-left:5px;
+}
 .margintopArea{
     padding-top:5px;
+}
+.tableArea{
+    border: 2px solid #999;
+    BORDER-COLLAPSE: collapse;
 }
 .textCenter{
     text-align:center;
@@ -65,15 +95,8 @@ strong{
     margin-left:600px;
     
 }
-.tableArea{
-    border: 2px solid #999;
-}
-.formCaption{
-    float:left;
-    width:120px;
-    margin-top: 5px;
-    text-align:right;
-}
+
+
 .iconWidth{
     width:50px;
     margin-top:  5px;
@@ -106,4 +129,12 @@ strong{
 #errorExplanation ul li {
   font-size: 12px;
   list-style-image: url(../images/caution_icon.gif);
+}
+/* エラーメッセージのスタイル設定 */
+.error_message{
+    color: red;
+}
+/* 通知メッセージのスタイル設定 */
+.notice_message{
+    color: blue;
 }

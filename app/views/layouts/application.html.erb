@@ -12,8 +12,18 @@
     <div id="page">
       <div id="headerArea">
         <div class="divLeft">
-          <%= link_to(image_tag('header_logo.gif', :alt =>'ロゴ画像',:border=>0),ICT4E_URL) %>
+          <%= link_to(image_tag('header_logo.gif', :alt =>'ロゴ画像',:border=>0),select_master_data('ict4e_url',:first)) %>
         </div>
+      </div>
+      <div CLASS="clearDiv"></div>
+      <div CLASS="spacer"></div>
+      <div class="divLeft">
+        <%= link_to 'トップ', select_master_data('ict4e_url',:first) %>&nbsp;&#62;&nbsp;<%= @title %>
+      </div>
+      <div class="textRight">
+        <% unless current_user.blank? %>
+          <b><%= current_user.email  %></b>でログイン中&nbsp;|&nbsp;<%= link_to 'ログアウト',logout_path %>
+        <% end %>
       </div>
       <div CLASS="clearDiv"></div>
       <hr/>
@@ -23,10 +33,15 @@
       </div>
       <div CLASS="clearDiv"></div>
       <div CLASS="spacer"></div>
+      <div>
+        |&nbsp;<%= link_to 'プライバシーポリシー', select_master_data('ict4e_url',:first)+'privacy.html'%>&nbsp;
+        |&nbsp;<%= link_to '著作権・リンク等', select_master_data('ict4e_url',:first)+'link.html'%>&nbsp;
+        |
+      </div>
       <hr/>
       <div id="footerArea">
-        <div CLASS="divLeft"><%= link_to(image_tag('ict4_logo.gif', :alt =>'ロゴ画像',:border=>0),ICT4E_URL) %></div>
-        <div><%= link_to(image_tag('mail.gif', :alt =>'お問い合わせはこちら',:border=>0),'mailto:' + OFFICE_EMAIL,:popup => 'true') %></div>
+        <div CLASS="divLeft"><%= link_to(image_tag('ict4_logo.gif', :alt =>'ロゴ画像',:border=>0),select_master_data('ict4e_url',:first)) %></div>
+        <div><%= link_to(image_tag('contact_us.gif', :alt =>'お問い合わせはこちら',:border=>0),:controller => 'contactus') %></div>
       </div>
     </div>
   </body>

@@ -169,9 +169,12 @@ module AuthenticatedSystem
     def handle_remember_cookie!(new_cookie_flag)
       return unless @current_user
       case
-      when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
-      when new_cookie_flag        then @current_user.remember_me
-      else                             @current_user.forget_me
+        when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
+        when new_cookie_flag        then @current_user.remember_me
+      else
+        # 自動ログイン未チェック時もCookieを保持するようにする。
+        @current_user.remember_me(8.hours)
+        # @current_user.forget_me
       end
       send_remember_cookie!
     end

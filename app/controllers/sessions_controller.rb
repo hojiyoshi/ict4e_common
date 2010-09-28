@@ -4,25 +4,33 @@ class SessionsController < ApplicationController
 
   # render new.erb.html
   def new
+    @title = 'ログイン'
+    if request.env['HTTP_REFERER']
+      session[:http_referer] = request.env['HTTP_REFERER']
+    end
   end
 
   def create
     logout_keeping_session!
-    user = User.authenticate(params[:login], params[:password])
+    user = User.authenticate(params[:users][:email], params[:users][:password])
     if user
       # Protects against session fixation attacks, causes request forgery
       # protection if user resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset_session
       self.current_user = user
-      new_cookie_flag = (params[:remember_me] == "1")
+      new_cookie_flag = (params[:users][:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/')
-      flash[:notice] = "Logged in successfully"
+      if session[:http_referer]
+        redirect_to session[:http_referer]
+      else
+        redirect_back_or_default('/')
+        flash[:notice] = "ログインしました。"
+      end
     else
       note_failed_signin
-      @login       = params[:login]
-      @remember_me = params[:remember_me]
+      @login       = params[:users][:email]
+      @remember_me = params[:users][:remember_me]
       render :action => 'new'
     end
   end
@@ -36,7 +44,7 @@ class SessionsController < ApplicationController
 protected
   # Track failed login attempts
   def note_failed_signin
-    flash[:error] = "Couldn't log you in as '#{params[:login]}'"
-    logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
+    flash[:error] = 'メールアドレスまたはパスワードが間違っています。'
+    logger.warn "Failed login for '#{params[:users][:email]}' from #{request.remote_ip} at #{Time.now.utc}"
   end
 end
