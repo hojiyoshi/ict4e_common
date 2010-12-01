@@ -1,12 +1,6 @@
-<div><%= image_tag 'info_icon.gif', :alt =>'ユーザ登録申請を承りました。'%><strong>ユーザ登録申請を承りました。</strong></div>
-<div CLASS="spacer"></div>
-<div><B><%= @user.email %></B>宛てにメールを送信しました。</div>
-<div>メールに記載された内容に従って、<strong>本登録</strong>を完了させて下さい。</div>
-<div CLASS="spacer"></div>
-<div>登録して頂いたメールアドレスについて、正しいアドレスであること確認するため、メールを送信しています。</div>
-<div>しばらく経ってもメールが届かない場合は、間違ったメールアドレスを登録した可能性があります。</div>
-<div>お手数ですが、再度登録をお願い致します。</div>
-<div CLASS="spacer"></div>
-<div>ご利用のメーラによっては、迷惑メールとして扱われている可能性もあります。</div>
-<div CLASS="spacer"></div>
-<div>みんなのICTのトップページに移動する場合は<%= link_to('こちら','http://www.ict4everyone.jp/') %>をクリックして下さい。</div>
+<h1 id="honbun">ユーザー登録:仮登録完了</h1>
+<p class="boxB">ユーザー登録申請を承りました。まだ本登録は完了していません。</p>
+<p><%= @user.email %>宛に、メールを送信しました。メールに記載された内容に従って、<span class="tCaution">「本登録」</span>を完了させてください。</p>
+
+<p>しばらく経ってもメールが届かない場合は、お手数ですが再度ユーザー登録をお願いします。</p>
+

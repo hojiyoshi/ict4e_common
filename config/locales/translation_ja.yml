@@ -5,7 +5,7 @@ ja:
       user_common: "user_common"  #g
 
     attributes: 
-      user: 
+      user:
         email: "メールアドレス"  #g
         password: "パスワード"
         password_confirmation: "パスワード（確認）"

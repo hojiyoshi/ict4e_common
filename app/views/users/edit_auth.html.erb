@@ -1,0 +1,31 @@
+<h1 id="honbun">メールアドレス・パスワード変更<%= '：エラー' unless flash[:error].blank? %></h1>
+<% if flash[:error].blank? %>
+  <p>登録済みユーザー情報のメールアドレスとパスワードを入力し、「ユーザー情報変更画面へ」ボタンを押してください。</p>
+<% else %>
+  <p>入力されたユーザー情報のメールアドレスもしくはパスワードが正しくありません。登録されているユーザー情報を入力してください。</p>
+  <p>ユーザー登録されていない方は、事前に「<%= link_to 'ユーザー登録', :controller => 'users', :action => 'new' %>」が必要です。</p>
+<% end %>
+
+<% form_tag :controller => 'sessions', :action => 'create' do -%>
+<% fields_for :user do |f| %>
+<h2>登録済みユーザー情報</h2>
+<table class="col">
+  <tr>
+    <th><label for="email">Eメール<span class="tCaution">(必須)</span></label></th>
+    <td>
+      <%= f.text_field 'email', :id=> 'email',:size=> '30', :style => 'ime-mode: disabled;',
+            :type => 'email', :class=>'textB ascii', :required => 'required' %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="password">パスワード<span class="tCaution">(必須)</span></label></th>
+    <td>
+      <%= f.password_field 'password', :id => 'password', :size => "10", :style => "ime-mode: disabled;",
+      :class => "textC ascii", :required => "required" %>
+      <%= link_to 'パスワードを忘れた方', :controller => 'users', :action => 'forget' %>
+    </td>
+  </tr>
+</table>
+<p><%= submit_tag 'メールアドレス・パスワード変更画面へ', :name => 'next', :disable_with => 'しばらくお待ちください。' %></p>
+<% end -%>
+<% end -%>

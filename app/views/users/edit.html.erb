@@ -1,0 +1,29 @@
+<h1 id="honbun">メールアドレス・パスワード変更：編集<%= '：エラー' unless error_messages_for('user').blank? %></h1>
+<% if error_messages_for('user').blank? %>
+<p>ユーザー情報を編集し、「確認画面へ」ボタンを押してください。</p>
+<% else %>
+<p>エラー内容を確認し、入力情報を修正後、「メールアドレス・パスワード変更する」ボタンを押してください。</p>
+<%= error_messages_for 'user' %>
+<% end %>
+<% form_tag({:controller => 'users', :action => 'update', :id => params[:id]}, :method => :put) do -%>
+<% fields_for :user do |f| %>
+<h2>登録済みユーザー情報</h2>
+<table class="col">
+  <tr>
+    <th><label for="email">Eメール<span class="tCaution">(必須)</span></label></th>
+    <td>
+      <%= f.text_field 'email', :id=> 'email',:size=> '30', :style => 'ime-mode: disabled;',
+            :type => 'email', :class=>'textB ascii', :required => 'required' %>
+    </td>
+  </tr>
+  <tr>
+    <th><label for="password">パスワード<span class="tCaution">(必須)</span></label></th>
+    <td>
+      <%= f.password_field 'password', :id => 'password', :size => "10", :style => "ime-mode: disabled;",
+      :class => "textC ascii", :required => "required" %>
+    </td>
+  </tr>
+</table>
+<p><%= submit_tag 'メールアドレス・パスワード変更する', :name => 'next', :disable_with => 'しばらくお待ちください。' %></p>
+<% end -%>
+<% end -%>

@@ -68,12 +68,11 @@ class User < ActiveRecord::Base
   end
 
 
+  def make_activation_code
+    self.activation_code = self.class.make_token
+  end
+
   protected
-    def make_activation_code
-
-      self.activation_code = self.class.make_token
-    end
-
     def email_presence_required?
       !(email.blank? || email == '')
     end

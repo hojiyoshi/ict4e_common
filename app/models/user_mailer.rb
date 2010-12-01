@@ -16,10 +16,10 @@ class UserMailer < ActionMailer::Base
     @body[:url]  = @body[:server_name]
   end
 
-  def contactus(user)
-    setup_email
-    @subject    += NKF.nkf('-j --cp932 -m0',"お問い合わせがありました")
-    @body[:contactus] = user
+  def remind(user)
+    setup_email(user)
+    @body[:url]  = @body[:server_name]+"users/forget_entry/" + user.activation_code
+    @subject    += NKF.nkf('-j --cp932 -m0','パスワード再設定URLのお知らせ')
   end
 
   ### メール本文の文字コードを変換するメソッド
@@ -31,7 +31,7 @@ class UserMailer < ActionMailer::Base
   
   protected
     def setup_email(user = nil)
-      @body[:office] = OFFICE_EMAIL             # 問い合わせ先のメールアドレス（環境に合わせる）
+      @body[:office] = OFFICE_EMAIL                             # 問い合わせ先のメールアドレス（環境に合わせる）
       @body[:server_name] = ICT4E_ACCOUNTS_URL                  # config/environment.rb参照
       @body[:ict4everyone_name] = ICT4E_URL                     # みんなのICTのURL
       @mime_version = '1.0'                                     # mime version

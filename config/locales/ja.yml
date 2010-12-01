@@ -117,8 +117,8 @@ ja:
     errors:
       template:
         header:
-          one:   "%{model}にエラーが発生しました。"
-          other: "入力項目に%{count}つの誤りがあります。"
+          one: 
+          other: 
         body: "以下の項目を確認してください。"
 
       messages:

@@ -1,48 +1,111 @@
-<html>
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://archism.jp/ict4e/use/tenji/entry.php -->
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <%= stylesheet_link_tag('common') %>
-    <%= javascript_include_tag 'jquery' %>
-    <%= javascript_include_tag 'jquery_blockUI' %>
-    <%= javascript_include_tag 'application' %>
-    <%= yield :html_header %>
-    <title>みんなのICT - <%=@title%></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <title><%=@title%></title>
+    <%= stylesheet_link_tag('base.css', :media => 'screen,print') %>
+    <%= stylesheet_link_tag('contentsarea.css', :media => 'screen,print') %>
+    <%= stylesheet_link_tag('print.css', :media => 'print') %>
+    <%= stylesheet_link_tag('common.css') %>
+    <%= javascript_include_tag 'valueconvertor.js' %>
+    <%= javascript_include_tag 'over.js' %>
+    <%= javascript_include_tag 'application.js' %>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   </head>
-  <body>
-    <div id="page">
-      <div id="headerArea">
-        <div class="divLeft">
-          <%= link_to(image_tag('header_logo.gif', :alt =>'ロゴ画像',:border=>0),select_master_data('ict4e_url',:first)) %>
-        </div>
-      </div>
-      <div CLASS="clearDiv"></div>
-      <div CLASS="spacer"></div>
-      <div class="divLeft">
-        <%= link_to 'トップ', select_master_data('ict4e_url',:first) %>&nbsp;&#62;&nbsp;<%= @title %>
-      </div>
-      <div class="textRight">
-        <% unless current_user.blank? %>
-          <b><%= current_user.email  %></b>でログイン中&nbsp;|&nbsp;<%= link_to 'ログアウト',logout_path %>
-        <% end %>
-      </div>
-      <div CLASS="clearDiv"></div>
-      <hr/>
-      <div CLASS="spacer"></div>
-      <div id="contentArea">
+  <body id="use">
+    <p class="skiplink" id="skiplink"><a href="http://archism.jp/ict4e/use/tenji/entry.php#honbun">本文へ移動</a></p>
+    <!--header[START]-->
+    <header>
+      <h1><%= link_to(image_tag('logo.gif', :size => '336x91', :alt =>'みんなのICTホーム',:border=>0), "http://archism.jp/ict4e/") %></h1>
+      <nav role="navigation">
+        <ul class="functionNav">
+          <li><a href="http://archism.jp/ict4e/sitemap/">サイトマップ</a></li>
+          <li><a href="http://archism.jp/ict4e/contact/">お問い合わせ</a></li>
+        </ul>
+        <ul class="mainNav">
+          <li class="nav_know"><%= link_to(image_tag('nav_know.gif', :size => '199x58', :alt =>'知る',:border=>0), "http://archism.jp/ict4e/know/") %></li>
+          <li class="nav_use"><%= link_to(image_tag('nav_use_o.gif', :size => '198x58', :alt =>'使う',:border=>0), "http://archism.jp/ict4e/know/") %></li>
+          <li class="nav_read"><%= link_to(image_tag('nav_read.gif', :size => '177x58', :alt =>'読む',:border=>0), "http://archism.jp/ict4e/know/") %></li>
+          <li class="nav_entry"><%= link_to(image_tag('nav_entry.gif', :size => '193x58', :alt =>'参加',:border=>0), "http://archism.jp/ict4e/know/") %></li>
+        </ul>
+      </nav>
+    </header>
+    <!--header[END]-->
+
+    <!--container[START]-->
+    <div id="container" class="clearFix">
+
+      <!--contentsArea[START]-->
+      <div id="contentsArea" role="main">
+        <nav>
+          <p class="topicPath">
+            <span>現在の位置： </span><a href="../../">ホーム</a> ＞ <a href="../">使う</a> ＞ <%=@nav_title%>
+          </p>
+        </nav>
+
         <%= yield %>
+
+        <p class="pagetop"><a href="#skiplink">このページの先頭へ</a></p>
       </div>
-      <div CLASS="clearDiv"></div>
-      <div CLASS="spacer"></div>
-      <div>
-        |&nbsp;<%= link_to 'プライバシーポリシー', select_master_data('ict4e_url',:first)+'privacy.html'%>&nbsp;
-        |&nbsp;<%= link_to '著作権・リンク等', select_master_data('ict4e_url',:first)+'link.html'%>&nbsp;
-        |
-      </div>
-      <hr/>
-      <div id="footerArea">
-        <div CLASS="divLeft"><%= link_to(image_tag('ict4_logo.gif', :alt =>'ロゴ画像',:border=>0),select_master_data('ict4e_url',:first)) %></div>
-        <div><%= link_to(image_tag('contact_us.gif', :alt =>'お問い合わせはこちら',:border=>0),:controller => 'contactus') %></div>
-      </div>
+
+      <!--contentsArea[END]-->
     </div>
+    <!--container[END]-->
+
+    <!--aside[START]-->
+    <aside>
+      <nav>
+        <h2>「使う」メニュー</h2>
+        <ul>
+          <li><a href="../rainman/">RAINMAN(レインマン)</a></li>
+          <li><a href="../brailleml/">BrailleML（ブレイル　エムエル）</a></li>
+          <li><a href="../tenji/">遠隔点字印刷サービス</a></li>
+          <li><a href="../youyaku/">要約筆記依頼サービス</a></li>
+          <li class="selected"><a>ユーザー登録・変更</a>
+            <ul>
+              <li><a href="entry.php">ユーザー登録</a></li>
+              <li><a href="edit.php">ユーザー情報変更</a></li>
+              <li><a href="forget.php">パスワードを忘れた方</a></li>
+            </ul>
+          </li>
+          <li><a href="../rule/">利用規約</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <!--aside[END]-->
+
+
+    <!--footer[START]-->
+    <footer role="contentinfo">
+      <div>
+        <ul>
+          <li><a href="http://archism.jp/ict4e/about/">サイトのご利用について</a></li>
+        </ul>
+        <address><span>特定非営利活動法人　みんなのICT</span><br>
+          住所：〒790-0062　愛媛県松山南江戸1町目10-21　ペリ館S棟103<br>
+          電話/ファックス：089-989-2208
+        </address>
+        <p class="copy">Copyright（C) 2008 ICT for everyone, All right reserved.</p>
+      </div>
+    </footer>
+    <!--footer[END]-->
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19615620-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </body>
 </html>

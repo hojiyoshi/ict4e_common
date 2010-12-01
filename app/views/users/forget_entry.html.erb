@@ -1,0 +1,15 @@
+<h1 id="honbun">パスワードの再設定<%= '：エラー' unless @forget_user.errors.blank? %></h1>
+<% form_tag :controller => 'users', :action => 'forget_entry_send', :id => params[:id] do -%>
+<% fields_for :user do |f| %>
+<p>
+<% if @forget_user.errors.blank? %>
+  新たに設定したいパスワード（半角英数字6文字以上）を入力して、「パスワードを再設定する」ボタンを押してください。</p>
+<% else %>
+  パスワードは半角英数字6文字以上で入力してください。
+<% end %>
+<p class="boxA"><label for="password">パスワード</label>
+<%= f.password_field :password, :id => "password", :style => "ime-mode: disabled;", :size => "10", :class=>"textC ascii", :required => "required" %>
+ <%= submit_tag 'パスワードを再設定する', :name => 'next', :disable_with => 'しばらくお待ちください。' %>
+</p>
+<% end -%>
+<% end -%><%= p error_messages_for('password') %>

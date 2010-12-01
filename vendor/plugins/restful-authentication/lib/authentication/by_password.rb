@@ -9,8 +9,8 @@ module Authentication
         # Virtual attribute for the unencrypted password
         attr_accessor :password
         validates_presence_of     :password
-        validates_presence_of     :password_confirmation, :if => :password_required?
-        validates_confirmation_of :password,                   :if => :password_required?
+        #validates_presence_of     :password_confirmation, :if => :password_required?
+        #validates_confirmation_of :password,                   :if => :password_required?
         validates_length_of       :password, :within => 6..20, :if => :password_required?
         validates_format_of       :password, :with => /^([a-zA-Z0-9!-\/])+$/, :if => :password_required?
 
@@ -45,6 +45,7 @@ module Authentication
 
       # Encrypts the password with the user salt
       def encrypt(password)
+        #p self.class.password_digest(password, salt)
         self.class.password_digest(password, salt)
       end
 
@@ -59,7 +60,8 @@ module Authentication
         self.crypted_password = encrypt(password)
       end
       def password_required?
-        crypted_password.blank? || !password.blank?
+        #crypted_password.blank? || !password.blank?
+        !password.blank?
       end
     end # instance methods
   end
