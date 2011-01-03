@@ -18,20 +18,20 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   </head>
   <body id="use">
-    <p class="skiplink" id="skiplink"><a href="http://archism.jp/ict4e/use/tenji/entry.php#honbun">本文へ移動</a></p>
+    <p class="skiplink" id="skiplink"><a href="#honbun">本文へ移動</a></p>
     <!--header[START]-->
     <header>
-      <h1><%= link_to(image_tag('logo.gif', :size => '336x91', :alt =>'みんなのICTホーム',:border=>0), "http://archism.jp/ict4e/") %></h1>
+      <h1><%= link_to(image_tag('logo.gif', :size => '336x91', :alt =>'みんなのICTホーム',:border=>0), '/') %></h1>
       <nav role="navigation">
         <ul class="functionNav">
-          <li><a href="http://archism.jp/ict4e/sitemap/">サイトマップ</a></li>
-          <li><a href="http://archism.jp/ict4e/contact/">お問い合わせ</a></li>
+          <li><%= link_to 'サイトマップ' '/sitemap/'%></li>
+          <li><%= link_to 'お問い合わせ' 'https://www.ict4everyone.jp/contact/'%></li>
         </ul>
         <ul class="mainNav">
-          <li class="nav_know"><%= link_to(image_tag('nav_know.gif', :size => '199x58', :alt =>'知る',:border=>0), "http://archism.jp/ict4e/know/") %></li>
-          <li class="nav_use"><%= link_to(image_tag('nav_use_o.gif', :size => '198x58', :alt =>'使う',:border=>0), "http://archism.jp/ict4e/know/") %></li>
-          <li class="nav_read"><%= link_to(image_tag('nav_read.gif', :size => '177x58', :alt =>'読む',:border=>0), "http://archism.jp/ict4e/know/") %></li>
-          <li class="nav_entry"><%= link_to(image_tag('nav_entry.gif', :size => '193x58', :alt =>'参加',:border=>0), "http://archism.jp/ict4e/know/") %></li>
+          <li class="nav_know"><%= link_to(image_tag('nav_know.gif', :size => '199x58', :alt =>'知る',:border=>0), '/know/') %></li>
+          <li class="nav_use"><%= link_to(image_tag('nav_use_o.gif', :size => '198x58', :alt =>'使う',:border=>0), '/use/') %></li>
+          <li class="nav_read"><%= link_to(image_tag('nav_read.gif', :size => '177x58', :alt =>'読む',:border=>0), '/read/') %></li>
+          <li class="nav_entry"><%= link_to(image_tag('nav_entry.gif', :size => '193x58', :alt =>'参加',:border=>0), '/entry/') %></li>
         </ul>
       </nav>
     </header>
