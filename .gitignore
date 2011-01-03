@@ -1,3 +1,3 @@
 log/*
 config/database.yml
-config/enviroment.rb
+config/environment.rb
