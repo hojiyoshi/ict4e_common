@@ -24,8 +24,8 @@
       <h1><%= link_to(image_tag('logo.gif', :size => '336x91', :alt =>'みんなのICTホーム',:border=>0), '/') %></h1>
       <nav role="navigation">
         <ul class="functionNav">
-          <li><%= link_to 'サイトマップ' '/sitemap/'%></li>
-          <li><%= link_to 'お問い合わせ' 'https://www.ict4everyone.jp/contact/'%></li>
+          <li><%= link_to 'サイトマップ', '/sitemap/'%></li>
+          <li><%= link_to 'お問い合わせ', 'https://www.ict4everyone.jp/contact/'%></li>
         </ul>
         <ul class="mainNav">
           <li class="nav_know"><%= link_to(image_tag('nav_know.gif', :size => '199x58', :alt =>'知る',:border=>0), '/know/') %></li>
@@ -44,7 +44,7 @@
       <div id="contentsArea" role="main">
         <nav>
           <p class="topicPath">
-            <span>現在の位置： </span><a href="../../">ホーム</a> ＞ <a href="../">使う</a> ＞ <%=@nav_title%>
+            <span>現在の位置： </span><a href='/'>ホーム</a> ＞ <a href='/use/'>使う</a> ＞ <%=@nav_title%>
           </p>
         </nav>
 
