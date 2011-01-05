@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @title = '：みんなのICT'
     # ナビゲーションタイトルの設定
     @nav_title = ['ユーザー登録・変更']
-    @nav_url   = ['/users']
+    @nav_url   = ['users']
   end
   # ユーザ登録トップ画面
   # user:GET
@@ -195,6 +195,6 @@ class UsersController < ApplicationController
   def password_nav_title
     # ナビゲーションタイトルの設定
     @nav_title.push('メールアドレス・パスワード変更')
-    @nav_url.push('/users/edit_auth')
+    @nav_url.push('users/edit_auth')
   end
 end
