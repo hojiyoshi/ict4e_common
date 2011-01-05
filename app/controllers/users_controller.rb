@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @title = '：みんなのICT'
     # ナビゲーションタイトルの設定
     @nav_title = ['ユーザー登録・変更']
-    @nav_url   = ['users']
+    @nav_controller   = ['users']
+    @nav_action   = ['new']
   end
   # ユーザ登録トップ画面
   # user:GET
@@ -111,9 +112,9 @@ class UsersController < ApplicationController
     @title = 'パスワードの再設定' + @title
     
     # 認証コードからユーザ情報を取得する
-    forget_user = User.find_by_activation_code(params[:id])
-    unless forget_user.blank?
-      if (forget_user.activated_at.to_i - Time.now.to_i) <= 0
+    @forget_user = User.find_by_activation_code(params[:id])
+    unless @forget_user.blank?
+      if (@forget_user.activated_at.to_i - Time.now.to_i) <= 0
         # 有効期限切れ画面を表示する。
         respond_to do |format|
           format.html{
@@ -139,7 +140,7 @@ class UsersController < ApplicationController
     # 値チェックを行う。
     if @forget_user.valid?
       # パスワードを暗号化する。
-      @forget_user.crypted_password = forget_user.authenticated?(params[:user]['password'])
+      @forget_user.crypted_password = @forget_user.authenticated?(params[:user]['password'])
       # パスワードを更新する。
       @forget_user.save
     else
@@ -195,6 +196,7 @@ class UsersController < ApplicationController
   def password_nav_title
     # ナビゲーションタイトルの設定
     @nav_title.push('メールアドレス・パスワード変更')
-    @nav_url.push('users/edit_auth')
+    @nav_controller.push('users')
+    @nav_action.push('edit_auth')
   end
 end
