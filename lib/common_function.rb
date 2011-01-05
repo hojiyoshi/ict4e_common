@@ -1,4 +1,5 @@
 module CommonFunction
+  # 情報・警告メッセージを取得するメソッド
   def get_flash_messages(messages,type)
     render_to_string :partial => 'layouts/messages',
       :locals => {:messages => messages, :type => type}

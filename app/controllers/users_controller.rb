@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   skip_before_filter :login_required
+  before_filter :password_nav_title, :only => ['forget_entry', 'forget_entry_send','update']
   # 初期化メソッド
   def initialize
     # タイトルの設定
     @title = '：みんなのICT'
     # ナビゲーションタイトルの設定
-    @nav_title = "<a href='/users'>ユーザー登録・変更</a> ＞ "
+    @nav_title = ['ユーザー登録・変更']
+    @nav_url   = ['/users']
   end
   # ユーザ登録トップ画面
   # user:GET
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
     # タイトルの設定
     @title = 'ユーザー登録・変更' + @title
     # ナビゲーションタイトルの設定
-    @nav_title = ''
+    @nav_title = nil
   end
 
   # ユーザ新規登録画面
@@ -107,8 +109,7 @@ class UsersController < ApplicationController
   def forget_entry
     # タイトルの設定
     @title = 'パスワードの再設定' + @title
-    # ナビゲーションタイトルの設定
-    @nav_title += "<a href='/users/forget'>パスワードを忘れた方</a> ＞"
+    
     # 認証コードからユーザ情報を取得する
     forget_user = User.find_by_activation_code(params[:id])
     unless forget_user.blank?
@@ -131,9 +132,7 @@ class UsersController < ApplicationController
   def forget_entry_send
     # タイトルの設定
     @title = 'パスワードの再設定' + @title
-    # ナビゲーションタイトルの設定
-    @nav_title += "<a href='/users/forget'>パスワードを忘れた方</a> ＞"
-    
+
     # 認証コードからユーザ情報を取得する
     @forget_user = User.find_by_activation_code(params[:id])
     @forget_user.password = params[:user]['password']
@@ -162,9 +161,7 @@ class UsersController < ApplicationController
   def edit
     # タイトルの設定
     @title = 'メールアドレス・パスワード変更：編集' + @title
-    # ナビゲーションタイトルの設定
-    @nav_title += "<a href='/users/edit_auth'>メールアドレス・パスワード変更</a> ＞"
-
+    
     # 変更対象となるユーザを検索する。
     @user = User.find(params[:id])
   end
@@ -175,8 +172,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # フォームの値をUserオブジェクトに代入する。
     @user.attributes = params[:user]
-    # ナビゲーションタイトルの設定
-    @nav_title += "<a href='/users/edit_auth'>メールアドレス・パスワード変更</a> ＞"
 
     # バリデーションチェックNGの場合
     unless @user.valid?
@@ -194,5 +189,12 @@ class UsersController < ApplicationController
     @title = 'メールアドレス・パスワード変更：完了' + @title
     # バリデーションチェックOKの場合
     @user.save
+  end
+
+  private
+  def password_nav_title
+    # ナビゲーションタイトルの設定
+    @nav_title.push('メールアドレス・パスワード変更')
+    @nav_url.push('/users/edit_auth')
   end
 end

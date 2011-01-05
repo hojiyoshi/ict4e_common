@@ -12,8 +12,8 @@
     <%= javascript_include_tag 'valueconvertor.js' %>
     <%= javascript_include_tag 'over.js' %>
     <%= javascript_include_tag 'application.js' %>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="/common/js/html5.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   </head>
@@ -44,7 +44,13 @@
       <div id="contentsArea" role="main">
         <nav>
           <p class="topicPath">
-            <span>現在の位置： </span><a href='/'>ホーム</a> ＞ <a href='/use/'>使う</a> ＞ <%=@nav_title%>
+            <span>現在の位置： </span>
+            <a href='/'>ホーム</a> ＞ <a href='/use/'>使う</a> ＞
+            <% unless @nav_title.blank? %>
+              <% for i in 0..@nav_title.size-1 %>
+                <%= link_to(@nav_title[i],@nav_url[i]) %> ＞
+              <% end %>
+            <% end %>
           </p>
         </nav>
 
@@ -62,18 +68,18 @@
       <nav>
         <h2>「使う」メニュー</h2>
         <ul>
-          <li><a href="../rainman/">RAINMAN(レインマン)</a></li>
-          <li><a href="../brailleml/">BrailleML（ブレイル　エムエル）</a></li>
-          <li><a href="../tenji/">遠隔点字印刷サービス</a></li>
-          <li><a href="../youyaku/">要約筆記依頼サービス</a></li>
+          <li><a href="/use/rainman/">RAINMAN(レインマン)</a></li>
+          <li><a href="/use/brailleml/">BrailleML（ブレイル　エムエル）</a></li>
+          <li><a href="/use/tenji/">遠隔点字印刷サービス</a></li>
+          <li><a href="/use/youyaku/">要約筆記依頼サービス</a></li>
           <li class="selected"><a>ユーザー登録・変更</a>
             <ul>
-              <li><a href="entry.php">ユーザー登録</a></li>
-              <li><a href="edit.php">ユーザー情報変更</a></li>
-              <li><a href="forget.php">パスワードを忘れた方</a></li>
+              <li><%= link_to 'ユーザー登録', 'signup'%></li>
+              <li><%= link_to 'ユーザー情報変更', :controller => 'users', :action => 'edit_auth' %></li>
+              <li><%= link_to 'パスワードを忘れた方', :controller => 'users', :action => 'forget'%></li>
             </ul>
           </li>
-          <li><a href="../rule/">利用規約</a></li>
+          <li><a href="/use/rule/">利用規約</a></li>
         </ul>
       </nav>
     </aside>
@@ -84,7 +90,7 @@
     <footer role="contentinfo">
       <div>
         <ul>
-          <li><a href="http://archism.jp/ict4e/about/">サイトのご利用について</a></li>
+          <li><a href="/about/">サイトのご利用について</a></li>
         </ul>
         <address><span>特定非営利活動法人　みんなのICT</span><br>
           住所：〒790-0062　愛媛県松山南江戸1町目10-21　ペリ館S棟103<br>
