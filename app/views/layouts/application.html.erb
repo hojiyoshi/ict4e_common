@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)http://archism.jp/ict4e/use/tenji/entry.php -->
+
 <html lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -48,7 +48,7 @@
             <a href='/'>ホーム</a> ＞ <a href='/use/'>使う</a> ＞
             <% unless @nav_title.blank? %>
               <% for i in 0..@nav_title.size-1 %>
-                <%= link_to(@nav_title[i], :controller => @nav_controller[i], :action => @nav_action[i]) %> ＞
+                <%= link_to(@nav_title[i], :controller => @nav_controller[i], :action => @nav_action[i] ) %> ＞
               <% end %>
             <% end %>
           </p>
