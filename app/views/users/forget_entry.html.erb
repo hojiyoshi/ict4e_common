@@ -9,7 +9,7 @@
 <% end %>
 <p class="boxA"><label for="password">パスワード</label>
 <%= f.password_field :password, :id => "password", :style => "ime-mode: disabled;", :size => "10", :class=>"textC ascii", :required => "required" %>
- <%= submit_tag 'パスワードを再設定する', :name => 'next', :disable_with => 'しばらくお待ちください。' %>
+ <%= submit_tag 'パスワードを再設定する', :name => 'next' %>
 </p>
 <% end -%>
 <% end -%><%= p error_messages_for('password') %>

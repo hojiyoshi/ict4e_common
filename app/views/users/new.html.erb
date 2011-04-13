@@ -14,8 +14,10 @@
 エラー内容を確認し、入力情報を修正後、「利用規約に同意してユーザー登録をする」ボタンを押してください。
 <%= error_messages_for 'user' %>
 <% end %>
-<h2>登録ユーザー情報</h2>
+
 <% form_tag :controller => 'users', :action => 'create' do -%>
+<!-- ログイン情報入力フォームの表示  -->
+<h2>登録ユーザー情報</h2>
 <% fields_for :user do |f| %>
 <table class="col">
   <tr>
@@ -33,7 +35,8 @@
     </td>
   </tr>
 </table>
-<p><%= link_to '利用規約', '/use/rule/' %></p>
-<p><%= submit_tag '利用規約に同意してユーザー登録をする', :name => 'next', :disable_with => 'しばらくお待ちください。' %></p>
 <% end -%>
+
+<p><%= link_to '利用規約', '/use/rule/' %></p>
+<p><%= submit_tag '利用規約に同意してユーザー登録をする', :name => 'next' %></p>
 <% end -%>

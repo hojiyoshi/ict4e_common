@@ -27,6 +27,27 @@ class UsersController < ApplicationController
     @title = 'ユーザー登録' + @title
 
     @user = User.new
+=begin
+    if params[:app] == 'remotecaption'
+      if params[:phase] == 'account'
+        # アカウント登録画面を表示する。
+        respond_to do |format|
+          format.html{
+            render :action => 'new_remotecaption_account'
+          }
+        end
+        return
+      elsif params[:phase] == 'user'
+        # 要約筆記依頼システムのユーザ登録（共通）画面を表示する。
+        respond_to do |format|
+          format.html{
+            render :action => 'new_remotecaption_user'
+          }
+        end
+        return
+      end
+    end
+=end
   end
 
   # ユーザ仮登録完了画面
