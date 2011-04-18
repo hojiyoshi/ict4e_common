@@ -1,4 +1,4 @@
-<h1 id="honbun">メールアドレス・パスワード変更<%= '：エラー' unless flash[:error].blank? %></h1>
+<h1 id="honbun">ユーザ情報変更<%= '：エラー' unless flash[:error].blank? %></h1>
 <% if flash[:error].blank? %>
   <p>登録済みユーザー情報のメールアドレスとパスワードを入力し、「ユーザー情報変更画面へ」ボタンを押してください。</p>
 <% else %>
@@ -26,6 +26,6 @@
     </td>
   </tr>
 </table>
-<p><%= submit_tag 'メールアドレス・パスワード変更画面へ', :name => 'next' %></p>
+<p><%= submit_tag 'ユーザ情報変更画面へ', :name => 'next' %></p>
 <% end -%>
 <% end -%>

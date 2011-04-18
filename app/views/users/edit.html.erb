@@ -1,8 +1,8 @@
-<h1 id="honbun">メールアドレス・パスワード変更：編集<%= '：エラー' unless error_messages_for('user').blank? %></h1>
+<h1 id="honbun">ユーザ情報変更：編集<%= '：エラー' unless error_messages_for('user').blank? %></h1>
 <% if error_messages_for('user').blank? %>
 <p>ユーザー情報を編集し、「確認画面へ」ボタンを押してください。</p>
 <% else %>
-<p>エラー内容を確認し、入力情報を修正後、「メールアドレス・パスワード変更する」ボタンを押してください。</p>
+<p>エラー内容を確認し、入力情報を修正後、「ユーザ情報を変更する」ボタンを押してください。</p>
 <%= error_messages_for 'user' %>
 <% end %>
 <% form_tag({:controller => 'users', :action => 'update', :id => params[:id]}, :method => :put) do -%>
@@ -24,6 +24,6 @@
     </td>
   </tr>
 </table>
-<p><%= submit_tag 'メールアドレス・パスワード変更する', :name => 'next' %></p>
+<p><%= submit_tag 'ユーザ情報を変更する', :name => 'next' %></p>
 <% end -%>
 <% end -%>

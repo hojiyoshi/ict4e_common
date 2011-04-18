@@ -5,4 +5,12 @@ module ApplicationHelper
     target = html_escape(target)
     target.gsub(/\r\n|\r|\n/, "<br />")
   end
+
+  def sub_menu_link(text,controller,action)
+    if params[:controller] == controller && params[:action] == action
+      return '<a>'+text+'</a>'
+    else
+      return link_to(text,:controller=>controller, :action => action)
+    end
+  end
 end
