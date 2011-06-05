@@ -27,27 +27,6 @@ class UsersController < ApplicationController
     @title = 'ユーザー登録' + @title
 
     @user = User.new
-=begin
-    if params[:app] == 'remotecaption'
-      if params[:phase] == 'account'
-        # アカウント登録画面を表示する。
-        respond_to do |format|
-          format.html{
-            render :action => 'new_remotecaption_account'
-          }
-        end
-        return
-      elsif params[:phase] == 'user'
-        # 要約筆記依頼システムのユーザ登録（共通）画面を表示する。
-        respond_to do |format|
-          format.html{
-            render :action => 'new_remotecaption_user'
-          }
-        end
-        return
-      end
-    end
-=end
   end
 
   # ユーザ仮登録完了画面
@@ -153,7 +132,7 @@ class UsersController < ApplicationController
   # user/forget_entry_send:GET
   def forget_entry_send
     # タイトルの設定
-    @title = 'パスワードの再設定' + @title
+    @title = 'パスワードの再設定：完了' + @title
 
     # 認証コードからユーザ情報を取得する
     @forget_user = User.find_by_activation_code(params[:id])
