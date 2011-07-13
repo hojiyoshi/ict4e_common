@@ -39,7 +39,6 @@ class UserMailer < ActionMailer::Base
       @content_type = 'text/plain'                              # content_type
       @subject      = NKF.nkf('-j --cp932 -m0',"【みんなのICT】")# 件名
       @from         = 'ict4e-info@ict4everyone.jp'              # 送信元
-      @bcc          = 'hojiyoshi@gmail.com'                     # 事務局アドレス（あとで変える）
       @sent_on      = Time.now                                  # 送信時刻
       @headers      = {'Content-Transfer-Encoding' => '7bit'}   # 送信ヘッダ
       unless user == nil
