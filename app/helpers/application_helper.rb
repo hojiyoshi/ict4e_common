@@ -29,4 +29,8 @@ module ApplicationHelper
       return li_selected if params[:action] == 'forget' || params[:action] == 'send_remind' || params[:action] == 'forget_entry' || params[:action] == 'forget_entry_send'
     end
   end
+
+  def get_protcol_type
+    return request.protocol
+  end
 end
