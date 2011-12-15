@@ -1,8 +1,10 @@
 <h1 id="honbun">ユーザー登録・変更</h1>
 <p>みんなのICTのユーザー登録を行うと「要約筆記依頼サービス」「ネット点字印刷」のサービスを利用することができます。</p>
-<h2>ユーザー登録・変更</h2>
+<div class="menu">
+<h2>「ユーザー登録・変更」メニュー</h2>
 <ul>
-  <li><%= link_to 'ユーザー登録', :controller => 'users', :action => 'new' %></li>
-  <li><%= link_to 'ユーザー情報変更', :controller => 'users', :action => 'edit_auth' %></li>
-  <li><%= link_to 'パスワードを忘れた方', :controller => 'users', :action => 'forget' %></li>
+ <li><a href="/use/ict4e_common/signup">ユーザー登録</a></li>
+ <li><a href="/use/ict4e_common/users/edit_auth">ユーザー情報変更</a></li>
+ <li><a href="/use/ict4e_common/users/forget">パスワードを忘れた方</a></li>
 </ul>
+</div>
