@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # ユーザ登録トップ画面
   # user:GET
   def index
+    p params[:controller]
     # タイトルの設定
     @title = 'ユーザー登録・変更' + @title
     # ナビゲーションタイトルの設定
